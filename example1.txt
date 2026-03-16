@@ -1,0 +1,1 @@
+Replace references to asofe.shop in this file.
