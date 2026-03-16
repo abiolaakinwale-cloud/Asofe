@@ -1,557 +1,260 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>ASOFE — For the Love of Style</title>
-  <meta name="description" content="ASOFE is a curated luxury fashion destination connecting the world to refined African and global style. Join the waitlist." />
-  <meta name="theme-color" content="#0B0B0B" />
-  <style>
-    :root{
-      --black:#0B0B0B;
-      --ivory:#F6F1EA;
-      --gold:#C6A46C;
-      --grey:#6E6E6E;
-      --line:rgba(11,11,11,.12);
-      --shadow:0 14px 40px rgba(11,11,11,.10);
-      --radius:18px;
-      --max:1120px;
-    }
-    html,body{height:100%;}
-    body{
-      margin:0;
-      background:var(--ivory);
-      color:var(--black);
-      font:16px/1.55 ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";
-      letter-spacing:.1px;
-    }
-    a{color:inherit;text-decoration:none}
-    .container{max-width:var(--max);margin:0 auto;padding:0 24px;}
-    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ASOFE — Nigerian Luxury Fashion</title>
 
-    .topbar{
-      position:sticky;top:0;z-index:50;
-      background:rgba(246,241,234,.78);
-      backdrop-filter:saturate(140%) blur(10px);
-      border-bottom:1px solid var(--line);
-    }
-    .topbar-inner{
-      display:flex;align-items:center;justify-content:space-between;
-      height:74px;
-    }
-    .brand{
-      display:flex;align-items:baseline;gap:14px;
-      letter-spacing:6px;
-      font-weight:600;
-    }
-    .brand .wordmark{
-      font-family: ui-serif, "Times New Roman", Times, Georgia, serif;
-      font-weight:500;
-      font-size:22px;
-      letter-spacing:10px;
-    }
-    .brand .tag{
-      color:var(--grey);
-      font-size:12px;
-      letter-spacing:2px;
-      text-transform:uppercase;
-    }
-    nav{display:flex;align-items:center;gap:18px;}
-    nav a{
-      font-size:12px;
-      letter-spacing:2px;
-      text-transform:uppercase;
-      color:rgba(11,11,11,.78);
-      padding:10px 8px;
-      border-radius:10px;
-    }
-    nav a:hover{background:rgba(11,11,11,.04);}
-    .btn{
-      display:inline-flex;align-items:center;justify-content:center;
-      gap:10px;
-      padding:12px 16px;
-      border-radius:999px;
-      border:1px solid var(--line);
-      background:transparent;
-      font-size:12px;
-      letter-spacing:2px;
-      text-transform:uppercase;
-      cursor:pointer;
-      white-space:nowrap;
-    }
-    .btn.primary{
-      background:var(--black);
-      color:var(--ivory);
-      border-color:var(--black);
-    }
-    .btn.primary:hover{opacity:.92;}
-    .btn.ghost:hover{background:rgba(11,11,11,.04);}
+<style>
+body{
+margin:0;
+font-family:Helvetica, Arial, sans-serif;
+background:#faf7f1;
+color:#111;
+}
 
-    .hero{padding:64px 0 28px;}
-    .hero-grid{
-      display:grid;
-      grid-template-columns:1.1fr .9fr;
-      gap:28px;
-      align-items:stretch;
-    }
-    .hero-card{
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      overflow:hidden;
-      box-shadow:var(--shadow);
-      background:
-        radial-gradient(1200px 600px at 12% 18%, rgba(198,164,108,.22), transparent 60%),
-        linear-gradient(135deg, rgba(11,11,11,.04), rgba(11,11,11,.00));
-    }
-    .hero-left{
-      padding:52px 46px;
-      display:flex;flex-direction:column;justify-content:space-between;
-      min-height:520px;
-    }
-    .eyebrow{
-      display:inline-flex;align-items:center;gap:10px;
-      font-size:12px;
-      letter-spacing:3px;
-      text-transform:uppercase;
-      color:rgba(11,11,11,.70);
-    }
-    .dot{width:6px;height:6px;border-radius:999px;background:var(--gold);display:inline-block;}
-    h1{
-      margin:12px 0 10px;
-      font-family: ui-serif, "Times New Roman", Times, Georgia, serif;
-      font-weight:500;
-      letter-spacing:-.4px;
-      font-size:54px;
-      line-height:1.05;
-    }
-    .sub{
-      margin:0 0 22px;
-      color:rgba(11,11,11,.75);
-      max-width:44ch;
-      font-size:16px;
-    }
-    .hero-actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center;}
-    .micro{
-      margin-top:10px;
-      font-size:12px;
-      color:rgba(11,11,11,.62);
-    }
-    .micro a{border-bottom:1px solid rgba(11,11,11,.2);}
-    .hero-right{
-      min-height:520px;
-      position:relative;
-      background:
-        linear-gradient(180deg, rgba(11,11,11,.06), rgba(11,11,11,.00)),
-        radial-gradient(900px 500px at 65% 30%, rgba(11,11,11,.12), transparent 60%),
-        radial-gradient(700px 460px at 30% 80%, rgba(198,164,108,.22), transparent 62%);
-      display:flex;flex-direction:column;justify-content:space-between;
-      padding:22px;
-    }
-    .hero-photo{
-      border-radius:16px;
-      border:1px solid rgba(11,11,11,.10);
-      background:
-        linear-gradient(135deg, rgba(11,11,11,.24), rgba(11,11,11,.05)),
-        radial-gradient(520px 340px at 30% 40%, rgba(246,241,234,.35), transparent 65%);
-      height:330px;
-      position:relative;
-      overflow:hidden;
-    }
-    .hero-photo:after{
-      content:"Editorial Campaign Image";
-      position:absolute;left:18px;bottom:14px;
-      font-size:11px;letter-spacing:2px;text-transform:uppercase;
-      color:rgba(246,241,234,.82);
-    }
-    .pill-row{display:flex;gap:10px;flex-wrap:wrap;}
-    .pill{
-      display:inline-flex;align-items:center;gap:10px;
-      border-radius:999px;
-      padding:10px 12px;
-      border:1px solid rgba(11,11,11,.12);
-      background:rgba(246,241,234,.7);
-      font-size:12px;
-      letter-spacing:1px;
-      color:rgba(11,11,11,.74);
-    }
-    .pill strong{color:var(--black);font-weight:600;}
-    .pill .mini-dot{width:6px;height:6px;border-radius:999px;background:var(--gold);}
+.container{
+max-width:1200px;
+margin:auto;
+padding:40px 20px;
+}
 
-    section{padding:48px 0;}
-    .section-head{
-      display:flex;align-items:flex-end;justify-content:space-between;gap:24px;
-      margin-bottom:18px;
-    }
-    .section-head h2{
-      margin:0;
-      font-family: ui-serif, "Times New Roman", Times, Georgia, serif;
-      font-weight:500;
-      font-size:28px;
-      letter-spacing:.2px;
-    }
-    .section-head p{margin:0;color:rgba(11,11,11,.68);max-width:60ch;}
-    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
-    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:25px 40px;
+background:white;
+border-bottom:1px solid #eee;
+}
 
-    .card{
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      padding:22px;
-      background:rgba(246,241,234,.75);
-    }
-    .card.shadow{box-shadow:var(--shadow); background:#fff0;}
-    .kicker{
-      font-size:12px;letter-spacing:3px;text-transform:uppercase;color:rgba(11,11,11,.65);
-      display:flex;align-items:center;gap:10px;margin-bottom:10px;
-    }
-    .kicker span{display:inline-block;width:18px;height:1px;background:var(--gold);}
-    .card h3{
-      margin:0 0 8px;
-      font-size:16px;
-      letter-spacing:.6px;
-      text-transform:uppercase;
-      font-weight:650;
-    }
-    .card p{margin:0;color:rgba(11,11,11,.70);}
+.logo{
+font-size:24px;
+letter-spacing:8px;
+font-weight:600;
+}
 
-    .editorial{
-      border-top:1px solid var(--line);
-      border-bottom:1px solid var(--line);
-      background:rgba(11,11,11,.02);
-    }
-    .editorial-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:16px;align-items:stretch;}
-    .feature{
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      overflow:hidden;
-      min-height:260px;
-      display:grid;
-      grid-template-columns:1.1fr .9fr;
-      background:
-        radial-gradient(800px 420px at 10% 20%, rgba(198,164,108,.20), transparent 62%),
-        linear-gradient(135deg, rgba(11,11,11,.04), rgba(11,11,11,.00));
-    }
-    .feature .copy{padding:22px;}
-    .feature .img{
-      background:
-        linear-gradient(135deg, rgba(11,11,11,.22), rgba(11,11,11,.03)),
-        radial-gradient(520px 320px at 30% 40%, rgba(246,241,234,.25), transparent 62%);
-      border-left:1px solid rgba(11,11,11,.10);
-      position:relative;
-      min-height:220px;
-    }
-    .feature .img:after{
-      content:"The ASOFE Edit";
-      position:absolute;left:18px;bottom:16px;
-      font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(246,241,234,.82);
-    }
+nav a{
+margin-left:30px;
+text-decoration:none;
+color:#555;
+font-size:13px;
+letter-spacing:2px;
+text-transform:uppercase;
+}
 
-    .waitlist{
-      background:var(--black);
-      color:var(--ivory);
-      border-top:1px solid rgba(246,241,234,.12);
-    }
-    .waitlist .section-head p{color:rgba(246,241,234,.70);}
-    form{
-      margin-top:18px;
-      display:grid;
-      grid-template-columns:1fr 1fr 1fr auto;
-      gap:10px;
-      align-items:center;
-    }
-    input, select{
-      width:100%;
-      padding:13px 14px;
-      border-radius:12px;
-      border:1px solid rgba(246,241,234,.18);
-      background:rgba(246,241,234,.04);
-      color:var(--ivory);
-      outline:none;
-      font-size:14px;
-    }
-    input::placeholder{color:rgba(246,241,234,.55);}
-    select{color:rgba(246,241,234,.85);}
-    option{color:#000;}
-    .btn.submit{
-      padding:13px 18px;
-      border-color:var(--gold);
-      background:var(--gold);
-      color:var(--black);
-      font-weight:700;
-    }
-    .fineprint{
-      margin-top:10px;
-      color:rgba(246,241,234,.65);
-      font-size:12px;
-    }
+.hero{
+display:grid;
+grid-template-columns:1.1fr 1fr;
+gap:50px;
+align-items:center;
+padding:90px 0;
+}
 
-    footer{padding:28px 0 40px;color:rgba(11,11,11,.65);}
-    .footer-grid{
-      display:grid;
-      grid-template-columns:1.2fr .8fr;
-      gap:16px;
-      align-items:start;
-      border-top:1px solid var(--line);
-      padding-top:18px;
-    }
-    .footer-links{display:flex;gap:18px;flex-wrap:wrap;justify-content:flex-end;}
-    .footer-links a{
-      font-size:12px;
-      letter-spacing:2px;
-      text-transform:uppercase;
-      color:rgba(11,11,11,.65);
-      border-bottom:1px solid rgba(11,11,11,.15);
-      padding-bottom:2px;
-    }
+.hero img{
+width:100%;
+border-radius:14px;
+}
 
-    @media (max-width: 980px){
-      .hero-grid{grid-template-columns:1fr;}
-      .hero-left, .hero-right{min-height:auto;}
-      h1{font-size:44px;}
-      .grid-3{grid-template-columns:1fr;}
-      .grid-2{grid-template-columns:1fr;}
-      .editorial-grid{grid-template-columns:1fr;}
-      .feature{grid-template-columns:1fr;}
-      .feature .img{border-left:none;border-top:1px solid rgba(11,11,11,.10);}
-      form{grid-template-columns:1fr;}
-      nav{display:none;}
-    }
-  </style>
+.hero h1{
+font-family:Georgia, serif;
+font-size:60px;
+line-height:1.05;
+margin-bottom:20px;
+}
+
+.hero p{
+color:#666;
+font-size:18px;
+line-height:1.6;
+max-width:520px;
+}
+
+.cta{
+margin-top:35px;
+}
+
+.button{
+padding:16px 30px;
+margin-right:15px;
+border-radius:40px;
+font-size:12px;
+letter-spacing:2px;
+text-transform:uppercase;
+border:1px solid #111;
+cursor:pointer;
+}
+
+.button.primary{
+background:#111;
+color:white;
+}
+
+.section{
+padding:90px 0;
+}
+
+.section h2{
+font-family:Georgia, serif;
+font-size:42px;
+margin-bottom:25px;
+}
+
+.features{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:20px;
+}
+
+.card{
+background:white;
+padding:35px;
+border-radius:14px;
+box-shadow:0 12px 40px rgba(0,0,0,0.05);
+}
+
+.designers{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:20px;
+}
+
+.designer img{
+width:100%;
+border-radius:14px;
+margin-bottom:12px;
+}
+
+.waitlist{
+background:#111;
+color:white;
+padding:90px 50px;
+border-radius:24px;
+margin-top:80px;
+}
+
+.waitlist-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:40px;
+}
+
+input, select{
+width:100%;
+padding:14px;
+margin-bottom:14px;
+border-radius:10px;
+border:none;
+}
+
+footer{
+padding:50px;
+text-align:center;
+color:#777;
+font-size:13px;
+}
+</style>
 </head>
 
 <body>
-  <header class="topbar" role="banner">
-    <div class="container">
-      <div class="topbar-inner">
-        <a class="brand" href="#top" aria-label="ASOFE home">
-          <span class="wordmark">ASOFE</span>
-          <span class="tag">For the Love of Style</span>
-        </a>
 
-        <nav aria-label="Primary navigation">
-          <a href="#how">How it works</a>
-          <a href="#edit">The Edit</a>
-          <a href="#brands">For Brands</a>
-          <a href="#waitlist">Join</a>
-        </nav>
+<header>
+<div class="logo">ASOFE</div>
+<nav>
+<a href="#">Designers</a>
+<a href="#">The Edit</a>
+<a href="#">Join</a>
+</nav>
+</header>
 
-        <a class="btn primary" href="#waitlist">Join the waitlist</a>
-      </div>
-    </div>
-  </header>
+<div class="container hero">
+<div>
+<h1>Luxury Nigerian fashion. Styled for the diaspora.</h1>
+<p>
+Discover curated ready-to-wear from leading Nigerian designers. 
+ASOFE brings heritage, confidence, and modern African luxury to global cities.
+</p>
 
-  <main id="top">
-    <section class="hero">
-      <div class="container">
-        <div class="hero-grid">
-          <div class="hero-card hero-left">
-            <div>
-              <div class="eyebrow"><span class="dot"></span> Curated luxury · Nigeria & diaspora</div>
-              <h1>Editorial elegance.<br/>African luxury.</h1>
-              <p class="sub">
-                ASOFE is a curated fashion destination connecting the world to refined ready‑to‑wear from Nigerian and global brands — with a calm, Net‑a‑Porter‑inspired experience.
-              </p>
+<div class="cta">
+<button class="button primary">Join Customer Waitlist</button>
+<button class="button">Join as Designer</button>
+</div>
+</div>
 
-              <div class="hero-actions">
-                <a class="btn primary" href="#waitlist">Join the ASOFE Circle</a>
-                <a class="btn ghost" href="#brands">Partner as a brand</a>
-              </div>
+<div>
+<img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=1200" alt="Black fashion model">
+</div>
+</div>
 
-              <div class="micro">
-                Launching soon. Limited founding-member access. <a href="#waitlist">Request invitation</a>.
-              </div>
-            </div>
+<div class="container section">
+<h2>Why ASOFE</h2>
 
-            <div class="pill-row" aria-label="Key highlights">
-              <div class="pill"><span class="mini-dot"></span> <strong>Curated</strong> designer selection</div>
-              <div class="pill"><span class="mini-dot"></span> <strong>Trusted</strong> fulfilment partners</div>
-              <div class="pill"><span class="mini-dot"></span> <strong>Global</strong> delivery focus</div>
-            </div>
-          </div>
+<div class="features">
+<div class="card">Curated Nigerian Designers</div>
+<div class="card">Diaspora Delivery (UK, US, Europe)</div>
+<div class="card">Editorial Styling Experience</div>
+<div class="card">Premium Marketplace Trust</div>
+</div>
+</div>
 
-          <aside class="hero-card hero-right" aria-label="Editorial preview">
-            <div class="hero-photo" role="img" aria-label="Placeholder for editorial campaign photography"></div>
-            <div class="pill-row">
-              <div class="pill"><span class="mini-dot"></span> Women · Men · Designers</div>
-              <div class="pill"><span class="mini-dot"></span> The ASOFE Edit</div>
-              <div class="pill"><span class="mini-dot"></span> Style Without Borders</div>
-            </div>
-          </aside>
-        </div>
-      </div>
-    </section>
+<div class="container section">
+<h2>Designer Spotlight</h2>
 
-    <section id="how">
-      <div class="container">
-        <div class="section-head">
-          <h2>How ASOFE works</h2>
-          <p>Simple, premium, and built for scale — discover, shop, and receive beautifully, with clear service standards.</p>
-        </div>
+<div class="designers">
+<div class="designer">
+<img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?q=80&w=800">
+<p>Orange Culture</p>
+</div>
 
-        <div class="grid-3">
-          <div class="card shadow">
-            <div class="kicker"><span></span>Step 01</div>
-            <h3>Curated discovery</h3>
-            <p>We select brands and pieces that match a refined, editorial standard — style with intention.</p>
-          </div>
-          <div class="card shadow">
-            <div class="kicker"><span></span>Step 02</div>
-            <h3>Seamless checkout</h3>
-            <p>Pay easily with local and international methods. Transparent pricing and clear delivery expectations.</p>
-          </div>
-          <div class="card shadow">
-            <div class="kicker"><span></span>Step 03</div>
-            <h3>Brand fulfilment</h3>
-            <p>Partner brands ship directly to customers under defined SLAs. ASOFE supports service and resolution.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+<div class="designer">
+<img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=800">
+<p>Lisa Folawiyo</p>
+</div>
 
-    <section class="editorial" id="edit">
-      <div class="container">
-        <div class="editorial-grid">
-          <div class="feature">
-            <div class="copy">
-              <div class="kicker"><span></span>The ASOFE Edit</div>
-              <h2 style="margin:0 0 10px;">Stories, styling, and designer spotlights.</h2>
-              <p style="margin:0;color:rgba(11,11,11,.72);max-width:60ch;">
-                A magazine‑style layer that makes ASOFE feel like a destination — not just a store.
-              </p>
-              <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap;">
-                <span class="pill"><span class="mini-dot"></span> Style Guides</span>
-                <span class="pill"><span class="mini-dot"></span> New Season Notes</span>
-                <span class="pill"><span class="mini-dot"></span> Designers to Watch</span>
-              </div>
-            </div>
-            <div class="img" aria-hidden="true"></div>
-          </div>
+<div class="designer">
+<img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=800">
+<p>Ejiro Amos Tafiri</p>
+</div>
 
-          <div class="card shadow" style="display:flex;flex-direction:column;justify-content:space-between;">
-            <div>
-              <div class="kicker"><span></span>Signature promise</div>
-              <h3>Quiet luxury experience</h3>
-              <p>Whitespace-first design, clean typography, and editorial pacing — built to feel premium on every scroll.</p>
-            </div>
-            <div style="margin-top:18px;border-top:1px solid var(--line);padding-top:14px;color:rgba(11,11,11,.72);font-size:14px;">
-              <strong style="letter-spacing:1px;">Coming soon:</strong> curated drops, private access, and founder collections.
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+<div class="designer">
+<img src="https://images.unsplash.com/photo-1520975928316-8c7a9d6c0c27?q=80&w=800">
+<p>Emmy Kasbit</p>
+</div>
+</div>
+</div>
 
-    <section id="brands">
-      <div class="container">
-        <div class="section-head">
-          <h2>For brand partners</h2>
-          <p>Join ASOFE as a founding brand. Reach global Nigerians and culturally fluent shoppers without upfront platform costs.</p>
-        </div>
+<div class="container">
+<div class="waitlist">
+<div class="waitlist-grid">
 
-        <div class="grid-2">
-          <div class="card shadow">
-            <div class="kicker"><span></span>What you get</div>
-            <h3>Demand aggregation</h3>
-            <p>We bring attention, curation, and conversion — with an editorial approach that elevates your brand.</p>
-            <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap;">
-              <span class="pill"><span class="mini-dot"></span> Global audience</span>
-              <span class="pill"><span class="mini-dot"></span> Premium presentation</span>
-              <span class="pill"><span class="mini-dot"></span> Performance insights</span>
-            </div>
-          </div>
+<div>
+<h2>Customer Early Access</h2>
+<input placeholder="Full Name">
+<input placeholder="Email">
+<select>
+<option>United Kingdom</option>
+<option>Nigeria</option>
+<option>USA</option>
+<option>Other</option>
+</select>
+<button class="button primary">Join Waitlist</button>
+</div>
 
-          <div class="card shadow">
-            <div class="kicker"><span></span>How partnership works</div>
-            <h3>Commission model</h3>
-            <p>Brands fulfil orders. ASOFE earns a commission per sale and supports customer experience and issue resolution.</p>
-            <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap;">
-              <span class="pill"><span class="mini-dot"></span> Zero listing fees</span>
-              <span class="pill"><span class="mini-dot"></span> Clear SLAs</span>
-              <span class="pill"><span class="mini-dot"></span> Monthly reconciliation</span>
-            </div>
-          </div>
-        </div>
+<div>
+<h2>Designer Applications</h2>
+<input placeholder="Brand Name">
+<input placeholder="Email">
+<input placeholder="Instagram">
+<button class="button primary">Apply to Join</button>
+</div>
 
-        <div style="margin-top:14px;display:flex;gap:12px;flex-wrap:wrap;">
-          <a class="btn primary" href="#waitlist">Request brand onboarding</a>
-          <a class="btn ghost" href="mailto:partnerships@asofe.com">Email partnerships@asofe.com</a>
-        </div>
-      </div>
-    </section>
+</div>
+</div>
+</div>
 
-    <section class="waitlist" id="waitlist">
-      <div class="container">
-        <div class="section-head">
-          <h2 style="color:var(--ivory)">Join the ASOFE Circle</h2>
-          <p>Get early access, private drops, and curated recommendations. Founding members receive priority invitations.</p>
-        </div>
+<footer>
+© ASOFE — Global Nigerian Luxury Fashion Platform
+</footer>
 
-        <form id="waitlistForm">
-          <label class="sr-only" for="name">Name</label>
-          <input id="name" name="name" placeholder="Full name" autocomplete="name" required>
-
-          <label class="sr-only" for="email">Email</label>
-          <input id="email" name="email" type="email" placeholder="Email address" autocomplete="email" required>
-
-          <label class="sr-only" for="location">Location</label>
-          <select id="location" name="location" required>
-            <option value="" selected disabled>Where are you based?</option>
-            <option>Lagos</option>
-            <option>Abuja</option>
-            <option>Port Harcourt</option>
-            <option>London</option>
-            <option>New York</option>
-            <option>Toronto</option>
-            <option>Other</option>
-          </select>
-
-          <button class="btn submit" type="submit">Request invite</button>
-        </form>
-
-        <div class="fineprint">
-          By joining, you agree to receive ASOFE updates. No spam. Unsubscribe anytime.
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      <div class="footer-grid">
-        <div>
-          <div class="brand" style="gap:12px;">
-            <span class="wordmark">ASOFE</span>
-            <span class="tag">Luxury · Editorial · Africa</span>
-          </div>
-          <p style="margin:10px 0 0;color:rgba(11,11,11,.62);max-width:72ch;">
-            ASOFE is a curated luxury fashion destination connecting the world to refined African and global style.
-          </p>
-          <p style="margin:10px 0 0;color:rgba(11,11,11,.55);font-size:12px;">
-            © <span id="year"></span> ASOFE. All rights reserved.
-          </p>
-        </div>
-
-        <div class="footer-links" aria-label="Footer links">
-          <a href="#how">How it works</a>
-          <a href="#edit">The edit</a>
-          <a href="#brands">Brands</a>
-          <a href="mailto:hello@asofe.com">Contact</a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    const form = document.getElementById('waitlistForm');
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const name = document.getElementById('name').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const location = document.getElementById('location').value;
-      alert(`Welcome, ${name}!\nYour request has been received.\n(${email} · ${location})`);
-      form.reset();
-    });
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
